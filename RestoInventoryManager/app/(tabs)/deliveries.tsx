@@ -24,7 +24,6 @@ export default function DeliveriesScreen() {
 
   return (
     <View style={{ padding: 20 }}>
-      <Text style={{ fontSize: 24 }}>Deliveries</Text>
 
       <SearchBar value={query} onChange={setQuery} />
 
@@ -32,9 +31,18 @@ export default function DeliveriesScreen() {
         data={filteredDeliveries}
         keyExtractor={(d) => d.id.toString()}
         renderItem={(d) => (
-          <Text>
-            {d.deliveryDate} – {d.deliveryRider}
-          </Text>
+          <View style={{
+            backgroundColor: '#ebebeb',
+            marginVertical: 4,
+            borderRadius: 8,
+            padding: 12,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+            <Text style={{ fontSize: 16, flex: 1 }}>{d.deliveryDate}</Text>
+            <Text style={{ fontSize: 16, flex: 2 }}>{d.deliveryRider}</Text>
+          </View>
         )}
       />
     </View>
