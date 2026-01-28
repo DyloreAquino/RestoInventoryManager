@@ -19,7 +19,7 @@ export default function DeliveriesScreen() {
   }, []);
 
   const filteredDeliveries = deliveries.filter((d) =>
-    d.deliveryRider.toLowerCase().includes(query.toLowerCase())
+    d.deliveryRider.toLowerCase().includes(query.toLowerCase()) || d.deliveryDate.toLowerCase().includes(query.toLowerCase())
   );
 
   return (
@@ -34,14 +34,18 @@ export default function DeliveriesScreen() {
           <View style={{
             backgroundColor: '#ebebeb',
             marginVertical: 4,
-            borderRadius: 8,
+            borderRadius: 15,
             padding: 12,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
           }}>
-            <Text style={{ fontSize: 16, flex: 1 }}>{d.deliveryDate}</Text>
-            <Text style={{ fontSize: 16, flex: 2 }}>{d.deliveryRider}</Text>
+            <View style={{ flexDirection: 'column', marginBottom: 4  }}>
+              <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
+                Delivery on {d.deliveryDate}
+              </Text>
+              <Text style={{ flex: 1, fontSize: 18, marginTop: 4 }}>
+                by {d.deliveryRider} @ {d.deliveryRiderNumber}
+              </Text>
+
+            </View>
           </View>
         )}
       />
