@@ -1,4 +1,5 @@
 import { getDB } from "./db";
+import { seedDummyData } from "./seed";
 
 // Initializes the database by creating necessary tables if they don't exist
 export async function initDB() {
@@ -56,4 +57,7 @@ export async function initDB() {
       FOREIGN KEY (itemID) REFERENCES items(id) ON DELETE CASCADE
     );
   `);
+
+  // Seed dummy data after tables are created
+  await seedDummyData();
 }
