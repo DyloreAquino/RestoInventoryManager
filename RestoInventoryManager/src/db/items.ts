@@ -1,4 +1,5 @@
 import {getDB} from "./db";
+import { Item } from "../types/items";
 
 // Types
 export type ItemInfo = {

@@ -1,6 +1,7 @@
 import { View, Text, FlatList } from "react-native";
 import { useEffect, useState } from "react";
-import { getItems, ItemInfo } from "../../src/db/items";
+import { getItems } from "../../src/db/items";
+import { Item as ItemInfo } from "../../src/types/items";
 
 export default function Home() {
   const [items, setItems] = useState<ItemInfo[]>([]);

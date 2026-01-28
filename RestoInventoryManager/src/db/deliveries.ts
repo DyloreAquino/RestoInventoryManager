@@ -1,7 +1,6 @@
 import {getDB} from "./db";
-import { increaseItemQuantity } from "./items";
-
-export type DeliveryItem = { itemID: number; quantity: number };
+import {increaseItemQuantity} from "./items";
+import { DeliveryItem } from "../types/deliveries";
 
 export async function createDelivery(
     deliveryRider: string = "N/A",

@@ -1,9 +1,7 @@
 import {getDB} from "./db";
 import { decreaseItemQuantity } from "./items";
-
-// Types
-export type OrderDish = { dishID: number; quantity: number };
-export type DishItemStock = { itemID: number; quantity: number };
+import { OrderDish } from "../types/orders";
+import { DishItem } from "../types/dishes";
 
 export async function createOrder(
     orderDishes: OrderDish[]
@@ -27,7 +25,7 @@ export async function createOrder(
             const dish_items= await db.getAllAsync(
                 `SELECT itemID, quantity FROM dish_item WHERE dishID = ?;`,
                 [order_dishes.dishID]
-            ) as DishItemStock[];
+            ) as DishItem[];
 
             for (const dish_item of dish_items) {
                 const totalRequired = dish_item.quantity * order_dishes.quantity;
