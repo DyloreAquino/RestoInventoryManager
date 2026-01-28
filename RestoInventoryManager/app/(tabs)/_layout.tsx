@@ -1,20 +1,14 @@
 import { Tabs } from "expo-router";
+import InitScreen from "../init"; // wrap the tabs with DB init
 
-export default function TabLayout() {
+export default function Layout() {
   return (
-    <Tabs>
-      <Tabs.Screen
-        name="index"
-        options={{ title: "Home" }}
-      />
-      <Tabs.Screen
-        name="orders"
-        options={{ title: "Orders" }}
-      />
-      <Tabs.Screen
-        name="deliveries"
-        options={{ title: "Deliveries" }}
-      />
-    </Tabs>
+    <InitScreen>
+      <Tabs screenOptions={{ headerShown: false }}>
+        <Tabs.Screen name="index" options={{ title: "Home" }} />
+        <Tabs.Screen name="orders" options={{ title: "Orders" }} />
+        <Tabs.Screen name="deliveries" options={{ title: "Deliveries" }} />
+      </Tabs>
+    </InitScreen>
   );
 }

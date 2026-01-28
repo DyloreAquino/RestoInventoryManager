@@ -1,5 +1,12 @@
 import {getDB} from "./db";
 
+// Types
+export type ItemInfo = {
+  id: number;  
+  name: string;     
+  quantity: number; 
+};
+
 // Functions to manage items in the inventory
 export async function createItem(
     name: string,
