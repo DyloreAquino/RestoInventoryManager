@@ -1,6 +1,6 @@
 import {getDB} from "./db";
 import { decreaseItemQuantity } from "./items";
-import { OrderDish } from "../types/orders";
+import { Order, OrderDish } from "../types/orders";
 import { DishItem } from "../types/dishes";
 
 export async function createOrder(
@@ -43,7 +43,7 @@ export async function createOrder(
 
 export async function getOrderDishes(
     orderID: number
-) {
+) : Promise<OrderDish[]> {
     const db = await getDB();
     return await db.getAllAsync(
        `SELECT dishes.id, dishes.dishName, order_dish.quantity
@@ -54,7 +54,7 @@ export async function getOrderDishes(
     );
 }
 
-export async function getOrders() {
+export async function getOrders() : Promise<Order[]> {
     const db = await getDB();
     return await db.getAllAsync(
         "SELECT * FROM orders;"

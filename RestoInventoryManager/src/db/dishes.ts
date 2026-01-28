@@ -1,5 +1,5 @@
 import {getDB} from "./db";
-import { DishItem } from "../types/dishes";
+import { Dish, DishItem } from "../types/dishes";
 
 export async function createDish(
     dishName: string,
@@ -33,7 +33,7 @@ export async function createDish(
 
 export async function getDishItems(
     dishID: number
-) {
+) : Promise<DishItem[]> {
     const db = await getDB();
     return await db.getAllAsync(
        `SELECT items.id, items.name, dish_item.quantity
@@ -57,7 +57,7 @@ export async function assignItemsToDish(
     );
 }
 
-export async function getDishes() {
+export async function getDishes() : Promise<Dish[]>{
     const db = await getDB();
     return await db.getAllAsync(
         "SELECT * FROM dishes;"

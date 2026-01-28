@@ -1,5 +1,5 @@
 import {getDB} from "./db";
-import { Item } from "../types/items";
+import { Item } from "../types/items"; 
 
 // Types
 export type ItemInfo = {
@@ -21,7 +21,7 @@ export async function createItem(
 }
 
 // Retrieves all items from the inventory
-export async function getItems() {
+export async function getItems() : Promise<Item[]>{
     const db = await getDB();
     return await db.getAllAsync(
         "SELECT * FROM items;"
