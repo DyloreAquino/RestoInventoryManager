@@ -1,4 +1,5 @@
 import {getDB} from "./db";
+import { Item } from "../types/items";
 
 // Functions to manage items in the inventory
 export async function createItem(
