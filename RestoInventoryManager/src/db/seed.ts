@@ -39,7 +39,7 @@ export async function seedDummyData() {
   );
   await db.runAsync(
     'INSERT INTO items (id, name, quantity) VALUES (?, ?, ?)',
-    [6, 'Olive Oil', 15]
+    [6, 'Olive Oil', 1]
   );
   await db.runAsync(
     'INSERT INTO items (id, name, quantity) VALUES (?, ?, ?)',
