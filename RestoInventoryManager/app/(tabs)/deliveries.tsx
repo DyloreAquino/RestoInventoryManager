@@ -4,6 +4,7 @@ import { SearchBar } from "@/src/components/SearchBar";
 import { ListView } from "@/src/components/ListView";
 import { getDeliveries } from "@/src/db/deliveries";
 import { Delivery as DeliveryInfo } from "@/src/types/deliveries";
+import { formatDate } from "@/app/(tabs)/_layout";
 
 export default function DeliveriesScreen() {
   const [deliveries, setDeliveries] = useState<DeliveryInfo[]>([]);
@@ -39,7 +40,7 @@ export default function DeliveriesScreen() {
           }}>
             <View style={{ flexDirection: 'column', marginBottom: 4  }}>
               <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
-                Delivery on {d.deliveryDate}
+                Delivery on {formatDate(d.deliveryDate)}
               </Text>
               <Text style={{ flex: 1, fontSize: 18, marginTop: 4 }}>
                 by {d.deliveryRider} @ {d.deliveryRiderNumber}
