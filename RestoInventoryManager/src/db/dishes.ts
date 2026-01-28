@@ -1,6 +1,5 @@
 import {getDB} from "./db";
-
-export type DishItem = { itemID: number; quantity: number };
+import { DishItem } from "../types/dishes";
 
 export async function createDish(
     dishName: string,

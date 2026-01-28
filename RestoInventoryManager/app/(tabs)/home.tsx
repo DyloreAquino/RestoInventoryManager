@@ -1,4 +1,7 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, FlatList } from "react-native";
+import { useEffect, useState } from "react";
+import { getItems } from "../../src/db/items";
+import { Item as ItemInfo } from "../../src/types/items";
 
 export default function HomeScreen() {
   // Fake inventory data
